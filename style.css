@@ -1,7 +1,7 @@
 /* Apply the Roboto font to the entire page */
 body {
-  margin: 0;
-  padding: 0;
+  margin: 0 !important;
+  padding: 0 !important;
   font-family: 'Poppins', sans-serif; /* Use Poppins font for the entire page */
   display: flex; /* Use Flexbox for layout */
   flex-direction: column; /* Stack content vertically */
@@ -112,8 +112,6 @@ header p {
 /* Add hover effect for cards */
 #timeline-section div:hover {
   box-shadow: 0 4px 10px rgba(0, 104, 181, 0.8); /* Add a dark blue drop shadow on hover */
-  transform: scale(1.03); /* Scale the card up slightly on hover */
-  border: 3px solid #ddd; /* Add a border to cards */
   border-radius: 10px; /* Slightly round the corners */
 }
 
@@ -142,8 +140,6 @@ header p {
 /* Show the overlay on hover */
 #timeline-section div:hover::after {
   opacity: 1; /* Make the overlay visible */
-  border: 3px solid #ddd; /* Add a border to cards */
-  border-radius: 10px; /* Slightly round the corners */
 }
 
 /* Remove hover effect for ::after in #additional-info section */
@@ -181,7 +177,7 @@ header p {
 
 /* Style the timeline footer */
 .timeline-footer {
-  font-size: 1.5em; /* Set a standard font size */
+  font-size: 1.2em; /* Set a standard font size */
   color: #0068B5; /* Use the same blue as the header */
   margin-top: 30px; /* Add spacing above the footer text */
   font-weight: bold;
@@ -217,12 +213,13 @@ header p {
 
 #additional-info-section .info-title {
   font-family: 'Oswald', sans-serif; /* Use Oswald font for titles */
-  font-size: 1.5em; /* Larger font size for titles */
+  font-size: 1.7em; /* Larger font size for titles */
   color: #0068B5; /* Dark blue color */
+  margin-bottom: 30px;
 }
 
 #additional-info-section .info-text {
-  font-size: 1em; /* Standard font size for text */
+  font-size: 1.2em; /* Standard font size for text */
   color: #333; /* Dark gray text color */
   line-height: 1.6; /* Improve readability */
 }
@@ -230,17 +227,17 @@ header p {
 #additional-info-section .info-button {
   font-family: 'Oswald', sans-serif; /* Use Roboto font for buttons */
   font-size: 1em; /* Standard font size */
-  color: white; /* White text color */
-  background-color: #0068B5; /* Blue background */
+  color: #0068B5; /* White text color */
+  background-color: white; /* Blue background */
   padding: 10px 20px; /* Add padding inside the button */
-  border: 3px solid #0068B5;
-  border-radius: 5px; /* Round the corners */
+  border: none;
   transition: 0.3s ease-in-out; /* Smooth hover effect */
   margin-bottom: 20px;
 }
 
 #additional-info-section .info-button:hover {
-  color: #00C7FD;
+  background-color: #0068B5; /* Blue background */
+  color: white;
 }
 
 #additional-info-section .info-button i {
@@ -252,8 +249,8 @@ header p {
 #subscription-section {
   font-family: 'Poppins', sans-serif; /* Match the page's font */
   padding: 40px 20px; /* Add padding around the section */
-  background-color: #f9f9f9; /* Light background color */
   border-top: 5px solid #0068B5; /* Add a blue border at the top */
+  margin: 0 150px;
 }
 
 #subscription-section h2 {
@@ -273,7 +270,7 @@ form {
 form .form-label {
   font-size: 1.3em;
   font-weight: bolder; /* Make labels bold */
-  color: #00C7FD; /* Use the same blue as the header */
+  color: #0068B5; /* Use the same blue as the header */
   font-family: 'Oswald', sans-serif; /* Use Oswald font for labels */
 }
 
@@ -299,11 +296,34 @@ form .btn-primary {
   font-family: 'Oswald', sans-serif;
   font-size: 1.5em;
   padding: 10px 20px;
+  display: block; /* Make the button a block element */
+  margin: 0 auto; /* Center the button horizontally */
 }
 
 form .btn-primary:hover {
   background-color: #00C7FD; /* Darker blue on hover */
 }
+
+form .form-check-input {
+  border-color: #00C7FD;
+}
+
+/* Change checkbox border and background when checked */
+form .form-check-input:checked {
+  background-color: #00C7FD;
+  border-color: #00C7FD;
+}
+
+form .form-check-input:hover {
+  border-color: #00C7FD;
+}
+
+/* Optional: Change border on focus (accessibility boost) */
+form .form-check-input:focus {
+  box-shadow: none;
+  border-color: #00C7FD;
+}
+
 
 /* Footer Section Styles */
 #footer-section {
@@ -360,16 +380,26 @@ form .btn-primary:hover {
   #timeline-section {
     flex-direction: column; /* Stack cards vertically */
     overflow-x: visible; /* Disable horizontal scrolling */
-    gap: 15px; /* Adjust spacing between cards */
   }
 
   #timeline-section div {
-    flex: 1 1 auto; /* Allow cards to stretch */
+    flex: 0 0 auto; /* Allow cards to take full width */
     width: 100%; /* Make cards take full width */
+    font-size: 1.2em;
   }
 
   #timeline-section div::after {
     font-size: 1em; /* Adjust font size for smaller screens */
+  }
+
+  .timeline-footer {
+    text-align: center;
+    margin: -12px 22px;
+  }
+
+  form {
+    width: 250px;
+    padding: 0;
   }
 }
 

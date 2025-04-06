@@ -1,3 +1,10 @@
+// Function to validate email input format
+function validateEmail(email) {
+  const email = document.getElementById('email').value;
+  const emailRegex = /^[^\\s@]+@[^\\s@]+\.[^\\s@]+$/;
+  return emailRegex.test(email);
+}
+
 // Function to apply RTL mode dynamically
 function applyRTLMode(isRTL) {
   const htmlElement = document.documentElement;
