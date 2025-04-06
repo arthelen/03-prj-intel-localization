@@ -55,7 +55,7 @@ header p {
   gap: 27px; /* Add spacing between cards */
   padding: 20px; /* Add padding around the section */
   justify-content: flex-start; /* Align cards to the start to ensure the first card is visible */
-  max-width: calc(250px * 6 + 90px); /* Adjust to show 6 cards (300px each + 20px gap) */
+  max-width: 950px; /* Adjust to show 6 cards (300px each + 20px gap) */
   margin: 0 auto; /* Center the section horizontally */
   scroll-snap-type: x mandatory; /* Enable horizontal scroll snapping */
 }
