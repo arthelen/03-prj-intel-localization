@@ -55,7 +55,7 @@ header p {
   gap: 27px; /* Add spacing between cards */
   padding: 20px; /* Add padding around the section */
   justify-content: flex-start; /* Align cards to the start to ensure the first card is visible */
-  max-width: 950px; /* Adjust to show 6 cards (300px each + 20px gap) */
+  max-width: 70%; /* Adjust to show 6 cards (300px each + 20px gap) */
   margin: 0 auto; /* Center the section horizontally */
   scroll-snap-type: x mandatory; /* Enable horizontal scroll snapping */
 }
@@ -105,6 +105,7 @@ header p {
   border: none; /* Remove default border */
   border-top: 5px solid #00C7FD; /* Add a light blue top border */
   border-radius: 15px;
+  opacity: 100%;
   width: 30%; /* Set the width of the line */
   margin: 0 auto; /* Center the line and add spacing */
 }
@@ -249,8 +250,20 @@ header p {
 #subscription-section {
   font-family: 'Poppins', sans-serif; /* Match the page's font */
   padding: 40px 20px; /* Add padding around the section */
-  border-top: 5px solid #0068B5; /* Add a blue border at the top */
-  margin: 0 150px;
+  margin: -65px 150px 0 150px;;
+}
+
+#subscription-section hr {
+  border: 5px solid #00C7FD; /* Remove default border */
+  opacity: 100%;
+  border-radius: 15px; /* Round the edges */
+  width: 65%; /* Limit the width */
+  margin: 30px auto 60px auto; /* Center the rule and add spacing */
+}
+
+/* Remove the old blue border */
+#subscription-section {
+  border-top: none;
 }
 
 #subscription-section h2 {
@@ -290,22 +303,24 @@ form .form-control:focus {
 }
 
 form .btn-primary {
-  background-color: #0068B5; /* Match the button color with the page */
-  border: none; /* Remove default border */
+  background-color: #00C7FD; /* Match the button color with the page */
+  border: none;
   transition: background-color 0.3s ease; /* Smooth hover effect */
   font-family: 'Oswald', sans-serif;
   font-size: 1.5em;
   padding: 10px 20px;
   display: block; /* Make the button a block element */
-  margin: 0 auto; /* Center the button horizontally */
+  margin: 20px auto; /* Center the button horizontally */
+  transition: 0.3s ease-in-out;
 }
 
 form .btn-primary:hover {
-  background-color: #00C7FD; /* Darker blue on hover */
+  background-color: #0068B5;
 }
 
 form .form-check-input {
   border-color: #00C7FD;
+  transition: 0.2s ease-in-out;
 }
 
 /* Change checkbox border and background when checked */
@@ -324,7 +339,6 @@ form .form-check-input:focus {
   border-color: #00C7FD;
 }
 
-
 /* Footer Section Styles */
 #footer-section {
   background-color: #0068B5; /* Match the header's blue color */
@@ -338,21 +352,15 @@ form .form-check-input:focus {
   font-size: 0.7em; /* Standard font size */
 }
 
-.footer-links {
-  margin: 10px 0 0; /* Add spacing above the links */
-  padding: 0; /* Remove default padding */
-}
-
-.footer-links .footer-link {
+.footer-link {
   font-family: 'Oswald', sans-serif; /* Use Oswald font for links */
   font-size: 1em; /* Standard font size */
   color: white; /* Light blue for links */
   text-decoration: none; /* Remove underline */
-  margin: 0 10px; /* Add spacing between links */
   transition: color 0.3s ease; /* Smooth hover effect */
 }
 
-.footer-links .footer-link:hover {
+.footer-link:hover {
   color: #00C7FD; /* Change to white on hover */
 }
 

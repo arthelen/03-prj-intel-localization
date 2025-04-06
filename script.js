@@ -50,5 +50,20 @@ function detectLanguageAndApplyRTL() {
   applyRTLMode(rtlLanguages.includes(lang));
 }
 
-// Run the detection on page load
-document.addEventListener('DOMContentLoaded', detectLanguageAndApplyRTL);
+// Function to observe language changes and apply RTL dynamically
+function observeLanguageChanges() {
+  const htmlElement = document.documentElement;
+  const observer = new MutationObserver(() => {
+    const lang = htmlElement.lang; // Get the updated language
+    const rtlLanguages = ['ar', 'he', 'fa', 'ur']; // List of RTL languages
+    applyRTLMode(rtlLanguages.includes(lang));
+  });
+
+  observer.observe(htmlElement, { attributes: true, attributeFilter: ['lang'] });
+}
+
+// Run the detection and observer on page load
+document.addEventListener('DOMContentLoaded', () => {
+  detectLanguageAndApplyRTL(); // Initial detection
+  observeLanguageChanges(); // Start observing changes
+});
