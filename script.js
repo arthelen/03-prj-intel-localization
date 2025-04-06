@@ -16,15 +16,12 @@ function applyRTLMode(isRTL) {
 
 // Function to dynamically load Bootstrap RTL or LTR stylesheet
 function loadBootstrapStylesheet(isRTL) {
-  const existingLink = document.querySelector('link[href*="bootstrap"]');
-  if (existingLink) existingLink.remove(); // Remove existing Bootstrap stylesheet
-
-  const link = document.createElement('link');
-  link.rel = 'stylesheet';
-  link.href = isRTL
-    ? 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.rtl.min.css'
-    : 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css';
-  document.head.appendChild(link);
+  const existingLink = document.querySelector('#bootstrap-stylesheet');
+  if (existingLink) {
+    existingLink.href = isRTL
+      ? 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.rtl.min.css'
+      : 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css';
+  }
 }
 
 // Function to adjust text alignment dynamically
@@ -41,6 +38,11 @@ function adjustTextAlignment(isRTL) {
   buttons.forEach(button => {
     button.style.float = isRTL ? 'left' : 'right';
   });
+
+  const additionalInfoSection = document.querySelector('#additional-info-section');
+  if (additionalInfoSection) {
+    additionalInfoSection.style.textAlign = isRTL ? 'right' : 'left';
+  }
 }
 
 // Function to detect language and apply RTL if necessary

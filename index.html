@@ -8,9 +8,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" id="bootstrap-stylesheet" />
   <script src="https://kit.fontawesome.com/aec2b1abc4.js" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
   <script src="script.js"></script>
 </head>
 <body>
@@ -109,7 +108,7 @@
       <img src="img/9.jpg" alt="A modern office space filled with greenery and natural light, featuring empty desks and office chairs." />
     </div>
   </section>
-  <p class="timeline-footer">Scroll to view timeline <span>|</span> Hover over cards to learn more!</p>
+  <p class="timeline-footer">Scroll to view timeline <span>|</span> Hover over cards to learn more</p>
 
   <!-- New Section: Additional Information -->
   <section id="additional-info-section" class="additional-info container my-5">
@@ -117,8 +116,7 @@
       <div class="col-12 col-md-6 col-lg-4">
         <div class="card h-100 text-center">
           <div class="card-body">
-            <span class="top-icon"><i class="fa-solid fa-hand-point-up"></i></span>
-            <h2 class="info-title card-title mt-3">RISE Strategy</h2>
+            <h2 class="info-title card-title mt-3"><span class="top-icon"><i class="fa-solid fa-hand-point-up"></i></span>RISE Strategy</h2>
             <p class="info-text card-text">
               Under its RISE (Responsible, Inclusive, Sustainable, Enabling) strategy, 
               Intel sets ambitious 2030 goals, including driving industry-wide 
@@ -131,8 +129,7 @@
       <div class="col-12 col-md-6 col-lg-4">
         <div class="card h-100 text-center">
           <div class="card-body">
-            <span class="top-icon"><i class="fa-regular fa-handshake"></i></span>
-            <h2 class="info-title card-title mt-3">Commitment</h2>
+            <h2 class="info-title card-title mt-3"><span class="top-icon"><i class="fa-regular fa-handshake"></i></span>Commitment</h2>
             <p class="info-text card-text">
               In 2022, Intel pledged to achieve net-zero greenhouse gas emissions 
               (Scope 1 and 2) by 2040. This commitment builds on decades of 
@@ -146,8 +143,7 @@
       <div class="col-12 col-md-6 col-lg-4">
         <div class="card h-100 text-center">
           <div class="card-body">
-            <span class="top-icon"><i class="fa-solid fa-hand-holding-droplet"></i></span>
-            <h2 class="info-title card-title mt-3">Water &amp; Waste</h2>
+            <h2 class="info-title card-title mt-3"><span class="top-icon"><i class="fa-solid fa-hand-holding-droplet"></i></span>Water &amp; Waste</h2>
             <p class="info-text card-text">
               Intel conserves billions of gallons of water annually and 
               collaborates with local communities to restore watersheds.
@@ -164,30 +160,33 @@
   <!-- Subscription Form -->
   <section id="subscription-section" class="subscription">
     <hr />
-    <h2 class="mb-4">Subscribe to our Newsletter!</h2>
-    <form class="row g-3">
+    <h2 class="mb-4">Subscribe to our Newsletter</h2>
+    <form class="row g-3" aria-labelledby="subscription-section">
       <div class="col-12">
-        <label for="firstName" class="form-label">First Name</label>
-        <input type="text" class="form-control" id="firstName" placeholder="Enter your first name" required>
+        <label for="firstName" class="form-label">First Name <span class="text-danger">*</span></label>
+        <input type="text" class="form-control" id="firstName" name="firstName" placeholder="Enter your first name" required aria-required="true" aria-describedby="firstNameHelp">
+        <div id="firstNameHelp" class="form-text">Your first name will help us personalize your experience.</div>
       </div>
       <div class="col-12">
-        <label for="lastName" class="form-label">Last Name</label>
-        <input type="text" class="form-control" id="lastName" placeholder="Enter your last name" required>
+        <label for="lastName" class="form-label">Last Name <span class="text-danger">*</span></label>
+        <input type="text" class="form-control" id="lastName" name="lastName" placeholder="Enter your last name" required aria-required="true" aria-describedby="lastNameHelp">
+        <div id="lastNameHelp" class="form-text">Your last name will help us address you properly.</div>
       </div>
       <div class="col-12">
-        <label for="email" class="form-label">Email Address</label>
-        <input type="email" class="form-control" id="email" placeholder="Enter your email address" required>
+        <label for="email" class="form-label">Email Address <span class="text-danger">*</span></label>
+        <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email address" required aria-required="true" aria-describedby="emailHelp">
+        <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
       </div>
       <div class="col-12">
         <div class="form-check">
-          <input class="form-check-input" type="checkbox" id="consent" required>
+          <input class="form-check-input" type="checkbox" id="consent" name="consent" required aria-required="true">
           <label class="form-check-label" for="consent">
-            I agree to receive communications about Intel's sustainability initiatives.
+            I agree to receive communications about Intel's sustainability initiatives
           </label>
         </div>
       </div>
       <div class="col-12">
-        <button type="submit" class="btn btn-primary">Subscribe</button>
+        <button type="submit" class="btn btn-primary" aria-label="Subscribe to the newsletter">Subscribe</button>
       </div>
     </form>
   </section>

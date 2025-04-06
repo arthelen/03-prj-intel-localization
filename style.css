@@ -199,17 +199,18 @@ header p {
 /* Style for the additional information section */
 #additional-info-section {
   font-family: 'Poppins', sans-serif; /* Use Poppins font for the entire page */
+  text-align: inherit !important; /* Default left alignment */
 }
 
 #additional-info-section .card {
   transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effect */
   border: none !important;
+  text-align: inherit !important; /* Default left alignment */
 }
 
 #additional-info-section .top-icon i {
-  font-size: 2.5em; /* Set icon size */
   color: #00C7FD; /* Match the light blue color */
-  margin-top: 20px;
+  margin-right: 15px;
 }
 
 #additional-info-section .info-title {
@@ -222,7 +223,7 @@ header p {
 #additional-info-section .info-text {
   font-size: 1.2em; /* Standard font size for text */
   color: #333; /* Dark gray text color */
-  line-height: 1.6; /* Improve readability */
+  line-height: 1.8; /* Improve readability */
 }
 
 #additional-info-section .info-button {
@@ -230,48 +231,21 @@ header p {
   font-size: 1em; /* Standard font size */
   color: #0068B5; /* White text color */
   background-color: white; /* Blue background */
-  padding: 10px 20px; /* Add padding inside the button */
   border: none;
   transition: 0.3s ease-in-out; /* Smooth hover effect */
   margin-bottom: 20px;
+  padding-left: 0;
 }
 
 #additional-info-section .info-button:hover {
   background-color: #0068B5; /* Blue background */
   color: white;
+  padding-left: 10px;
 }
 
 #additional-info-section .info-button i {
   color: #00C7FD;
   margin-left: 5px;
-}
-
-/* Style for the subscription section */
-#subscription-section {
-  font-family: 'Poppins', sans-serif; /* Match the page's font */
-  padding: 40px 20px; /* Add padding around the section */
-  margin: -65px 150px 0 150px;;
-}
-
-#subscription-section hr {
-  border: 5px solid #00C7FD; /* Remove default border */
-  opacity: 100%;
-  border-radius: 15px; /* Round the edges */
-  width: 65%; /* Limit the width */
-  margin: 30px auto 60px auto; /* Center the rule and add spacing */
-}
-
-/* Remove the old blue border */
-#subscription-section {
-  border-top: none;
-}
-
-#subscription-section h2 {
-  font-family: 'Oswald', sans-serif; /* Use Oswald font for the heading */
-  font-size: 2em; /* Set a larger font size for the heading */
-  color: #0068B5; /* Use the same blue as the header */
-  margin-bottom: 20px; /* Add spacing below the heading */
-  text-align: center;
 }
 
 /* Style for the subscription form */
@@ -339,6 +313,34 @@ form .form-check-input:focus {
   border-color: #00C7FD;
 }
 
+/* Style for the subscription section */
+#subscription-section {
+  font-family: 'Poppins', sans-serif; /* Match the page's font */
+  padding: 40px 20px; /* Add padding around the section */
+  margin: -65px 150px 0 150px;
+}
+
+#subscription-section hr {
+  border: 5px solid #00C7FD; /* Remove default border */
+  opacity: 100%;
+  border-radius: 15px; /* Round the edges */
+  width: 65%; /* Limit the width */
+  margin: 30px auto 60px auto; /* Center the rule and add spacing */
+}
+
+/* Remove the old blue border */
+#subscription-section {
+  border-top: none;
+}
+
+#subscription-section h2 {
+  font-family: 'Oswald', sans-serif; /* Use Oswald font for the heading */
+  font-size: 2em; /* Set a larger font size for the heading */
+  color: #0068B5; /* Use the same blue as the header */
+  margin-bottom: 20px; /* Add spacing below the heading */
+  text-align: center;
+}
+
 /* Footer Section Styles */
 #footer-section {
   background-color: #0068B5; /* Match the header's blue color */
@@ -400,14 +402,19 @@ form .form-check-input:focus {
     font-size: 1em; /* Adjust font size for smaller screens */
   }
 
+  #additional-info-section {
+    margin: 0 auto; /* Center the additional info section */
+    padding: 0 40px; /* Add padding for better spacing */
+  }
+
   .timeline-footer {
     text-align: center;
     margin: -12px 22px;
   }
 
   form {
-    width: 250px;
-    padding: 0;
+    width: 340px;
+
   }
 }
 
@@ -421,7 +428,7 @@ form .form-check-input:focus {
 
 /* Adjust text alignment for RTL layout */
 .rtl body {
-  text-align: right;
+  text-align: right !important;
 }
 
 .rtl header div {
@@ -438,6 +445,14 @@ form .form-check-input:focus {
 
 .rtl .timeline-footer {
   text-align: right;
+}
+
+.rtl #additional-info-section {
+  text-align: right !important; /* Adjust to right alignment for RTL */
+}
+
+.rtl #additional-info-section p {
+  text-align: right !important; /* Adjust to right alignment for RTL */
 }
 
 /* Adjust subscription form alignment for RTL */
@@ -460,8 +475,4 @@ form .form-check-input:focus {
 
 .rtl .footer-links .footer-link {
   margin: 0 10px 0 0; /* Adjust spacing for RTL */
-}
-
-.rtl #additional-info-section {
-  text-align: right !important;
 }
