@@ -1,0 +1,356 @@
+/* Apply the Roboto font to the entire page */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif; /* Use Poppins font for the entire page */
+  text-align: center; /* Center-align all text on the page */
+  display: flex; /* Use Flexbox for layout */
+  flex-direction: column; /* Stack content vertically */
+  align-items: center; /* Center content horizontally */
+}
+
+/* Style the header section with a blue ombre background */
+header {
+  width: 100%; /* Make the header span the full width of the page */
+  background-color: #0068B5; /* Blue ombre */
+  color: white; /* Ensure text is readable on the background */
+  text-align: center; /* Center-align text */
+  padding: 20px 0; /* Add vertical padding */
+}
+
+header div {
+  max-width: 850px; /* Limit the content width */
+  margin: 40px auto; /* Center the content within the header */
+  padding: 0 15px; /* Add horizontal padding for smaller screens */
+}
+
+header img {
+  max-width: 37%; /* Ensure the image scales with the screen size */
+  height: auto; /* Maintain the aspect ratio */
+  margin-bottom: 30px; /* Add spacing below the logo */
+}
+
+header h1 {
+  font-size: 2.7em; /* Make the main heading prominent */
+  font-family: 'Oswald', sans-serif; /* Use Oswald font for the heading */
+  margin: 10px 0; /* Add spacing around the heading */
+  color: transparent; /* Make the text transparent to show the gradient */
+  background-image: linear-gradient(to bottom, #ffffff, #00C7FD); /* Apply top-down gradient */
+  -webkit-background-clip: text; /* Clip the gradient to the text */
+  background-clip: text; /* Ensure compatibility */
+}
+
+header p {
+  font-size: 1.5em; /* Slightly larger font for the subheading */
+  margin: 10px 0; /* Add spacing around the paragraph */
+  text-shadow: 5px 5px 5px rgba(0, 0, 0, 0.4); /* Add a subtle drop shadow */
+}
+
+/* Style the timeline section */
+#timeline-section {
+  display: flex; /* Use Flexbox for layout */
+  flex-wrap: nowrap; /* Prevent wrapping on larger screens */
+  overflow-x: auto; /* Enable horizontal scrolling */
+  gap: 27px; /* Add spacing between cards */
+  padding: 20px; /* Add padding around the section */
+  justify-content: flex-start; /* Align cards to the start to ensure the first card is visible */
+  max-width: calc(250px * 6 + 90px); /* Adjust to show 6 cards (300px each + 20px gap) */
+  margin: 0 auto; /* Center the section horizontally */
+  scroll-snap-type: x mandatory; /* Enable horizontal scroll snapping */
+}
+
+/* Style the horizontal scrollbar */
+#timeline-section::-webkit-scrollbar {
+  height: 10px; /* Set the height of the scrollbar */
+}
+
+#timeline-section::-webkit-scrollbar-track {
+  background: #ddd; /* Light gray background for the scrollbar track */
+  border-radius: 5px; /* Round the corners of the track */
+}
+
+#timeline-section::-webkit-scrollbar-thumb {
+  background: #00C7FD; /* Blue color for the scrollbar thumb */
+  border-radius: 5px; /* Round the corners of the thumb */
+}
+
+#timeline-section::-webkit-scrollbar-thumb:hover {
+  background: #0068B5; /* Darker blue on hover for the scrollbar thumb */
+}
+
+/* Position the card content and overlay */
+#timeline-section div {
+  position: relative; /* Set position to allow overlay positioning */
+  flex: 0 0 300px; /* Set a fixed width for each card */
+  background-color: #f9f9f9; /* Light background for cards */
+  border: 3px solid #ddd; /* Add a border to cards */
+  border-radius: 10px; /* Slightly round the corners */
+  padding: 15px; /* Add padding inside the cards */
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+  text-align: center; /* Center-align text inside the card */
+  display: flex; /* Use Flexbox for layout */
+  flex-direction: column; /* Stack content vertically */
+  justify-content: center; /* Center content vertically */
+  align-items: center; /* Center content horizontally */
+  height: 400px; /* Set a fixed height for uniformity */
+  overflow: hidden; /* Hide content that overflows the card */
+  transition: box-shadow 0.3s ease, transform 0.3s ease; /* Add smooth scaling transition */
+  scroll-snap-align: start; /* Ensure each card snaps to the start of the viewport */
+  margin: 40px auto;
+}
+
+/* Style the <hr> tags inside cards */
+#timeline-section div hr {
+  border: none; /* Remove default border */
+  border-top: 5px solid #00C7FD; /* Add a light blue top border */
+  border-radius: 15px;
+  width: 30%; /* Set the width of the line */
+  margin: 0 auto; /* Center the line and add spacing */
+}
+
+/* Add hover effect for cards */
+#timeline-section div:hover {
+  box-shadow: 0 4px 10px rgba(0, 104, 181, 0.8); /* Add a dark blue drop shadow on hover */
+  transform: scale(1.03); /* Scale the card up slightly on hover */
+  border: 3px solid #ddd; /* Add a border to cards */
+  border-radius: 10px; /* Slightly round the corners */
+}
+
+/* Style the overlay */
+#timeline-section div::after {
+  content: attr(data-text); /* Use the card's data-text attribute for overlay text */
+  position: absolute; /* Position the overlay over the card */
+  top: 0;
+  left: 0;
+  width: 100%; /* Cover the entire card */
+  height: 100%; /* Cover the entire card */
+  background-color: rgba(0, 104, 181, 0.9); /* Use a slightly transparent dark blue */
+  color: white; /* Make the text readable */
+  display: flex; /* Use Flexbox for centering text */
+  justify-content: center; /* Center text horizontally */
+  align-items: center; /* Center text vertically */
+  text-align: center; /* Center-align the text */
+  opacity: 0; /* Hide the overlay by default */
+  transition: opacity 0.3s ease; /* Smooth transition for hover effect */
+  padding: 15px 25px; /* Add padding for text readability */
+  border-radius: inherit; /* Match the card's border radius */
+  box-sizing: border-box; /* Ensure padding is included in the dimensions */
+  font-size: 1.2em; /* Set a larger font size for the overlay text */
+}
+
+/* Show the overlay on hover */
+#timeline-section div:hover::after {
+  opacity: 1; /* Make the overlay visible */
+  border: 3px solid #ddd; /* Add a border to cards */
+  border-radius: 10px; /* Slightly round the corners */
+}
+
+/* Remove hover effect for ::after in #additional-info section */
+#additional-info-section div::after {
+  opacity: 0 !important; /* Ensure the overlay remains hidden */
+  transition: none; /* Remove transition effect */
+}
+
+#timeline-section div img {
+  max-width: 80%; /* Scale images to fit within the card */
+  height: auto; /* Maintain aspect ratio */
+  margin-bottom: 20px; /* Add spacing below the image */
+  /* border: solid #0068B5 7px; */
+  border-radius: 10px; /* Round the image corners */
+}
+
+#timeline-section div h2, #timeline-section div h3, #timeline-section div p {
+  margin: 10px 0; /* Add consistent spacing between elements */
+  max-width: 90%; /* Ensure text stays within the card boundaries */
+  word-wrap: break-word; /* Prevent text overflow */
+}
+
+#timeline-section div h2 {
+  font-family: 'Oswald', sans-serif; /* Use Oswald font for the years */
+  font-size: 2em; /* Set a larger font size for headings */
+  color: #0068B5; /* Use the dark blue color */
+  margin: 10px 0; /* Add spacing around the year */
+}
+
+#timeline-section div h3 {
+  font-size: 1.2em; /* Set a slightly smaller font size for subheadings */
+  font-weight: lighter;
+  margin-bottom: 20px;
+}
+
+/* Style the timeline footer */
+.timeline-footer {
+  font-size: 1.5em; /* Set a standard font size */
+  color: #0068B5; /* Use the same blue as the header */
+  margin-top: 30px; /* Add spacing above the footer text */
+  font-weight: bold;
+}
+
+.timeline-footer span {
+  color: #00C7FD; /* Use the same blue as the header */
+  font-weight: bolder;
+}
+
+/* Focus effect for accessibility */
+.info-button:focus {
+  outline: 2px solid #00C7FD; /* Add a light blue outline */
+  outline-offset: 2px; /* Add spacing between the button and outline */
+}
+
+/* Style for the additional information section */
+#additional-info-section {
+  font-family: 'Poppins', sans-serif; /* Use Poppins font for the entire page */
+}
+
+#additional-info-section .card {
+  border: 2px solid #ddd; /* Light gray border for cards */
+  border-radius: 10px; /* Slightly round the corners */
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for cards */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effect */
+}
+
+#additional-info-section .top-icon i {
+  font-size: 2.5em; /* Set icon size */
+  color: #00C7FD; /* Match the light blue color */
+  margin-top: 20px;
+}
+
+#additional-info-section .info-title {
+  font-family: 'Oswald', sans-serif; /* Use Oswald font for titles */
+  font-size: 1.5em; /* Larger font size for titles */
+  color: #0068B5; /* Dark blue color */
+}
+
+#additional-info-section .info-text {
+  font-size: 1em; /* Standard font size for text */
+  color: #333; /* Dark gray text color */
+  line-height: 1.6; /* Improve readability */
+}
+
+#additional-info-section .info-button {
+  font-family: 'Oswald', sans-serif; /* Use Roboto font for buttons */
+  font-size: 1em; /* Standard font size */
+  color: white; /* White text color */
+  background-color: #0068B5; /* Blue background */
+  padding: 10px 20px; /* Add padding inside the button */
+  border: 3px solid #0068B5;
+  border-radius: 5px; /* Round the corners */
+  transition: 0.3s ease-in-out; /* Smooth hover effect */
+  margin-bottom: 20px;
+}
+
+#additional-info-section .info-button:hover {
+  border: 3px solid #00C7FD;
+}
+
+#additional-info-section .info-button i {
+  color: #00C7FD;
+  margin-left: 5px;
+}
+
+/* Style for the subscription section */
+#subscription-section {
+  font-family: 'Poppins', sans-serif; /* Match the page's font */
+  padding: 40px 20px; /* Add padding around the section */
+  background-color: #f9f9f9; /* Light background color */
+  border-top: 5px solid #0068B5; /* Add a blue border at the top */
+}
+
+/* Style for the subscription form */
+form {
+  font-family: 'Poppins', sans-serif; /* Match the page's font */
+}
+
+form .form-label {
+  font-weight: bold; /* Make labels bold */
+  color: #0068B5; /* Use the same blue as the header */
+  font-family: 'Oswald', sans-serif; /* Use Oswald font for labels */
+}
+
+form .form-control {
+  border-radius: 5px; /* Slightly round input fields */
+  border: 2px solid #ddd; /* Add a light gray border */
+}
+
+form .form-control:focus {
+  border-color: #00C7FD; /* Highlight border on focus */
+  box-shadow: 0 0 5px rgba(0, 199, 253, 0.5); /* Add a subtle glow */
+}
+
+form .btn-primary {
+  background-color: #0068B5; /* Match the button color with the page */
+  border: none; /* Remove default border */
+  transition: background-color 0.3s ease; /* Smooth hover effect */
+}
+
+form .btn-primary:hover {
+  background-color: #004a8f; /* Darker blue on hover */
+}
+
+/* Footer Section Styles */
+#footer-section {
+  background-color: #0068B5; /* Match the header's blue color */
+  color: white; /* White text for contrast */
+  font-family: 'Poppins', sans-serif; /* Use Poppins font */
+  width: 100%;
+}
+
+#footer-section p {
+  margin: 30px 0; /* Remove default margin */
+  font-size: 0.7em; /* Standard font size */
+}
+
+.footer-links {
+  margin: 10px 0 0; /* Add spacing above the links */
+  padding: 0; /* Remove default padding */
+}
+
+.footer-links .footer-link {
+  font-family: 'Oswald', sans-serif; /* Use Oswald font for links */
+  font-size: 1em; /* Standard font size */
+  color: #00C7FD; /* Light blue for links */
+  text-decoration: none; /* Remove underline */
+  margin: 0 10px; /* Add spacing between links */
+  transition: color 0.3s ease; /* Smooth hover effect */
+}
+
+.footer-links .footer-link:hover {
+  color: #ffffff; /* Change to white on hover */
+}
+
+/* Media query for small screens (max-width: 600px) */
+@media (max-width: 600px) {
+  header div {
+    max-width: 100%; /* Allow content to span the full width */
+    padding: 0 10px; /* Add smaller padding for better spacing */
+    transition: 0.2s ease-in-out;
+  }
+
+  header img {
+    max-width: 70%; /* Adjust logo size for smaller screens */
+    margin-bottom: 20px; /* Reduce spacing below the logo */
+  }
+
+  header h1 {
+    font-size: 1.5em; /* Reduce heading size for smaller screens */
+  }
+
+  header p {
+    font-size: 1em; /* Adjust paragraph font size for readability */
+  }
+
+  #timeline-section {
+    flex-direction: column; /* Stack cards vertically */
+    overflow-x: visible; /* Disable horizontal scrolling */
+    gap: 15px; /* Adjust spacing between cards */
+  }
+
+  #timeline-section div {
+    flex: 1 1 auto; /* Allow cards to stretch */
+    width: 100%; /* Make cards take full width */
+  }
+
+  #timeline-section div::after {
+    font-size: 1em; /* Adjust font size for smaller screens */
+  }
+}
