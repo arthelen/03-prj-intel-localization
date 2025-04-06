@@ -3,7 +3,6 @@ body {
   margin: 0;
   padding: 0;
   font-family: 'Poppins', sans-serif; /* Use Poppins font for the entire page */
-  text-align: center; /* Center-align all text on the page */
   display: flex; /* Use Flexbox for layout */
   flex-direction: column; /* Stack content vertically */
   align-items: center; /* Center content horizontally */
@@ -42,12 +41,14 @@ header h1 {
 
 header p {
   font-size: 1.5em; /* Slightly larger font for the subheading */
+  font-family: 'Poppins', sans-serif;
   margin: 10px 0; /* Add spacing around the paragraph */
   text-shadow: 5px 5px 5px rgba(0, 0, 0, 0.4); /* Add a subtle drop shadow */
 }
 
 /* Style the timeline section */
 #timeline-section {
+  font-family: 'Poppins', sans-serif;
   display: flex; /* Use Flexbox for layout */
   flex-wrap: nowrap; /* Prevent wrapping on larger screens */
   overflow-x: auto; /* Enable horizontal scrolling */
@@ -184,6 +185,7 @@ header p {
   color: #0068B5; /* Use the same blue as the header */
   margin-top: 30px; /* Add spacing above the footer text */
   font-weight: bold;
+  font-family: 'Oswald', sans-serif;
 }
 
 .timeline-footer span {
@@ -203,10 +205,8 @@ header p {
 }
 
 #additional-info-section .card {
-  border: 2px solid #ddd; /* Light gray border for cards */
-  border-radius: 10px; /* Slightly round the corners */
-  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for cards */
   transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effect */
+  border: none !important;
 }
 
 #additional-info-section .top-icon i {
@@ -240,7 +240,7 @@ header p {
 }
 
 #additional-info-section .info-button:hover {
-  border: 3px solid #00C7FD;
+  color: #00C7FD;
 }
 
 #additional-info-section .info-button i {
@@ -256,20 +256,35 @@ header p {
   border-top: 5px solid #0068B5; /* Add a blue border at the top */
 }
 
+#subscription-section h2 {
+  font-family: 'Oswald', sans-serif; /* Use Oswald font for the heading */
+  font-size: 2em; /* Set a larger font size for the heading */
+  color: #0068B5; /* Use the same blue as the header */
+  margin-bottom: 20px; /* Add spacing below the heading */
+  text-align: center;
+}
+
 /* Style for the subscription form */
 form {
   font-family: 'Poppins', sans-serif; /* Match the page's font */
+  width: 100%;
 }
 
 form .form-label {
-  font-weight: bold; /* Make labels bold */
-  color: #0068B5; /* Use the same blue as the header */
+  font-size: 1.3em;
+  font-weight: bolder; /* Make labels bold */
+  color: #00C7FD; /* Use the same blue as the header */
   font-family: 'Oswald', sans-serif; /* Use Oswald font for labels */
 }
 
 form .form-control {
   border-radius: 5px; /* Slightly round input fields */
   border: 2px solid #ddd; /* Add a light gray border */
+  transition: 0.3s ease-in-out;
+}
+
+form .form-control:hover {
+  box-shadow: 0 0 5px rgba(0, 199, 253, 0.7); /* Add a subtle glow */
 }
 
 form .form-control:focus {
@@ -281,10 +296,13 @@ form .btn-primary {
   background-color: #0068B5; /* Match the button color with the page */
   border: none; /* Remove default border */
   transition: background-color 0.3s ease; /* Smooth hover effect */
+  font-family: 'Oswald', sans-serif;
+  font-size: 1.5em;
+  padding: 10px 20px;
 }
 
 form .btn-primary:hover {
-  background-color: #004a8f; /* Darker blue on hover */
+  background-color: #00C7FD; /* Darker blue on hover */
 }
 
 /* Footer Section Styles */
@@ -308,14 +326,14 @@ form .btn-primary:hover {
 .footer-links .footer-link {
   font-family: 'Oswald', sans-serif; /* Use Oswald font for links */
   font-size: 1em; /* Standard font size */
-  color: #00C7FD; /* Light blue for links */
+  color: white; /* Light blue for links */
   text-decoration: none; /* Remove underline */
   margin: 0 10px; /* Add spacing between links */
   transition: color 0.3s ease; /* Smooth hover effect */
 }
 
 .footer-links .footer-link:hover {
-  color: #ffffff; /* Change to white on hover */
+  color: #00C7FD; /* Change to white on hover */
 }
 
 /* Media query for small screens (max-width: 600px) */
@@ -353,4 +371,59 @@ form .btn-primary:hover {
   #timeline-section div::after {
     font-size: 1em; /* Adjust font size for smaller screens */
   }
+}
+
+/* Media query for medium screens (min-width: 768px and max-width: 991.98px) */
+@media (min-width: 768px) and (max-width: 991.98px) {
+  #additional-info-section .row .col-md-6:nth-child(3) {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+/* Adjust text alignment for RTL layout */
+.rtl body {
+  text-align: right;
+}
+
+.rtl header div {
+  text-align: right;
+}
+
+.rtl #timeline-section {
+  justify-content: flex-end; /* Align cards to the end for RTL */
+}
+
+.rtl #timeline-section div {
+  direction: rtl; /* Ensure proper text flow inside cards */
+}
+
+.rtl .timeline-footer {
+  text-align: right;
+}
+
+/* Adjust subscription form alignment for RTL */
+.rtl form .form-label {
+  text-align: right;
+}
+
+.rtl form .form-check-label {
+  text-align: right;
+}
+
+.rtl form .btn-primary {
+  float: left; /* Reposition button for RTL */
+}
+
+/* Adjust footer alignment for RTL */
+.rtl #footer-section {
+  text-align: right;
+}
+
+.rtl .footer-links .footer-link {
+  margin: 0 10px 0 0; /* Adjust spacing for RTL */
+}
+
+.rtl #additional-info-section {
+  text-align: right !important;
 }
