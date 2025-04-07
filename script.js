@@ -1,9 +1,27 @@
 // Function to validate email input format
 function validateEmail(email) {
-  const email = document.getElementById('email').value;
-  const emailRegex = /^[^\\s@]+@[^\\s@]+\.[^\\s@]+$/;
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   return emailRegex.test(email);
 }
+
+document.querySelector('form').addEventListener('submit', function (e) {
+  const emailField = document.getElementById('email');
+  const emailError = document.getElementById('emailError');
+  const isValid = validateEmail(emailField.value);
+
+  if (!isValid) {
+    e.preventDefault(); // prevent form submission
+    emailField.setAttribute('aria-invalid', 'true');
+    emailField.classList.add('is-invalid');
+    emailError.classList.remove('visually-hidden');
+    emailField.focus();
+  } else {
+    emailField.removeAttribute('aria-invalid');
+    emailField.classList.remove('is-invalid');
+    emailError.classList.add('visually-hidden');
+  }
+});
+
 
 // Function to apply RTL mode dynamically
 function applyRTLMode(isRTL) {

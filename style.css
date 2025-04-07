@@ -55,7 +55,7 @@ header p {
   gap: 27px; /* Add spacing between cards */
   padding: 20px; /* Add padding around the section */
   justify-content: flex-start; /* Align cards to the start to ensure the first card is visible */
-  max-width: 70%; /* Adjust to show 6 cards (300px each + 20px gap) */
+  max-width: 65%; /* Adjust to show 6 cards (300px each + 20px gap) */
   margin: 0 auto; /* Center the section horizontally */
   scroll-snap-type: x mandatory; /* Enable horizontal scroll snapping */
 }
@@ -190,6 +190,61 @@ header p {
   font-weight: bolder;
 }
 
+#chip-section {
+  max-width: 690px; /* or whatever width you want */
+  margin: 0 auto;    /* center it horizontally */
+}
+
+#chip-section h2 {
+  font-family: 'Oswald', sans-serif; /* Use Oswald font for the heading */
+  font-size: 2em; /* Set a larger font size for the heading */
+  color: #0068B5; /* Use the same blue as the header */
+  margin: 40px 0; /* Add spacing below the heading */
+  text-align: center;
+}
+
+.specs {
+  font-family: 'Oswald', sans-serif; /* Use Oswald font for the heading */
+  font-size: 1.1em; /* Set a larger font size for the heading */
+  color: #00C7FD; /* Use the same blue as the header */
+  margin: 40px 0; /* Add spacing below the heading */
+  text-align: center;
+  text-decoration: underline;;
+}
+
+.accordion-button {
+  font-family: 'Oswald', sans-serif;
+  background-color: white;
+  color: #0068B5;
+  font-weight: 600;
+  font-size: 1.3rem;
+  box-shadow: none;
+  transition: 0.3s ease-in-out;
+  padding: 20px;
+}
+
+.accordion-button:hover {
+  background-color: #0068B5;
+  color: white;
+}
+
+.accordion-button:focus {
+  box-shadow: none;
+}
+
+.accordion-button:not(.collapsed) {
+  background-color: #0068B5 !important;
+  color: white !important;;
+  border-bottom: 5px solid #00C7FD !important;;
+  box-shadow: none;
+}
+
+.accordion-body {
+  background-color: white;
+  color: #333;
+  font-size: 1.1rem;
+}
+
 /* Focus effect for accessibility */
 .info-button:focus {
   outline: 2px solid #00C7FD; /* Add a light blue outline */
@@ -277,15 +332,12 @@ form .form-control:focus {
 }
 
 form .btn-primary {
-  background-color: #00C7FD; /* Match the button color with the page */
+  background-color: #00C7FD;
   border: none;
-  transition: background-color 0.3s ease; /* Smooth hover effect */
   font-family: 'Oswald', sans-serif;
   font-size: 1.5em;
   padding: 10px 20px;
-  display: block; /* Make the button a block element */
-  margin: 20px auto; /* Center the button horizontally */
-  transition: 0.3s ease-in-out;
+  transition: background-color 0.3s ease-in-out;
 }
 
 form .btn-primary:hover {
@@ -317,7 +369,7 @@ form .form-check-input:focus {
 #subscription-section {
   font-family: 'Poppins', sans-serif; /* Match the page's font */
   padding: 40px 20px; /* Add padding around the section */
-  margin: -65px 150px 0 150px;
+  margin: -25px 150px 0 150px;
 }
 
 #subscription-section hr {
